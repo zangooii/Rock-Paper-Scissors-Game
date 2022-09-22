@@ -1,0 +1,15 @@
+#opponent {
+  position: relative;
+}
+
+#rock,
+#paper,
+#scissors {
+  position: relative;
+  top: 450px;
+}
+
+.choose-div {
+  display: flex;
+  justify-content: center;
+}

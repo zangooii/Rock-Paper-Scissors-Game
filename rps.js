@@ -9,35 +9,57 @@ let rock = document.getElementById("rock");
 let paper = document.getElementById("paper");
 let scissors = document.getElementById("scissors");
 
+let topPos = 1;
+
 rock.onclick = () => {
   playerChoice = "Rock";
+  opponent.style.top = "1px";
+  topPos = 1;
+
   selectFunc();
   result();
 };
 paper.onclick = () => {
   playerChoice = "Paper";
+  opponent.style.top = "1px";
+  topPos = 1;
   selectFunc();
   result();
 };
 
 scissors.onclick = () => {
   playerChoice = "Scissors";
+  opponent.style.top = "1px";
+  topPos = 1;
   selectFunc();
   result();
+};
+
+let opponent = document.getElementById("opponent");
+
+changeTop = () => {
+  topPos += 15;
+  opponent.style.top = `${topPos}px`;
 };
 
 const selectFunc = () => {
   selector = Math.floor(Math.random() * 3 + 1);
   if (selector == 1) {
     opponentChoice = "Rock";
-    document.getElementById("opponent").src = "Images/rockr.jpg";
+    opponent.src = "Images/rockr.jpg";
   } else if (selector == 2) {
-    document.getElementById("opponent").src = "Images/paperr.jpg";
+    opponent.src = "Images/paperr.jpg";
     opponentChoice = "Paper";
   } else if (selector == 3) {
-    document.getElementById("opponent").src = "Images/scissorsr.jpg";
+    opponent.src = "Images/scissorsr.jpg";
     opponentChoice = "Scissors";
   }
+  interval = setInterval(changeTop, 1);
+  clear = () => {
+    clearInterval(interval);
+    console.log("here");
+  };
+  setTimeout(clear, 100);
 };
 
 const result = () => {
